@@ -47,13 +47,9 @@ header h1 span {
     display: inline-block;
 }
 
-header h1 span:first-child {
-    color: var(--ctext); 
-}
+header h1 span:first-child {color: var(--ctext); }
 
-header h1 span:last-child {
-    color: var(--c1);
-}
+header h1 span:last-child {color: var(--c1);}
 
 header h1 span::after {
     content: '';
@@ -74,8 +70,14 @@ header h1 span:last-child::after {
     left: -4px;
 }
 
-header h1:hover span::after {
-    width: calc(100% + 4px);
+header h1:hover span::after {width: calc(100% + 4px);}
+
+/* Content */
+#content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(to top left, #ffffff0f, black);
 }
 
 #slogan {
@@ -83,16 +85,14 @@ header h1:hover span::after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 80px 20px;
-    background-image: linear-gradient(to top left, #ffffff0f, black);
+    padding: 100px 20px;
 }
 
 #slogan h1 {
     font-weight: 700;
-    font-size: clamp(2em, 4.5em, 10vw);
+    font-size: clamp(2em, 8em, 10vw);
     text-align: center;
     text-transform: uppercase;
-    margin: 20px 0;
     text-shadow: 0 5px 1px black;
 }
 
@@ -101,10 +101,77 @@ header h1:hover span::after {
     font-size: 0.8em;
 }
 
-#slogan span, main h2 span {
-    color: var(--c1); /*var(--c1)*/
+#slogan span, main h2 span {color: var(--c1); /*var(--c1)*/}
+
+#carousel_box {
+    text-align: center;
+    padding: 100px 0 200px;
+    cursor: default;
 }
 
+/* Fade Up Animation */
+#slogan, #carousel_box {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 1s ease-out;
+}
+
+#slogan.visible, #carousel_box.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+/* Fade Up Animation */
+
+#carousel_box h2 {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+#carousel {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.carousel-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.carousel-track img {
+    height: 250px;
+    width: auto;
+    margin: 0 15px;
+    border-radius: 15px;
+    box-shadow: 0 0.5px 10px #000000a1;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* #carousel:hover .carousel-track {
+    animation-play-state: paused;
+} */
+
+#carousel_box #phrase {
+    font-size: 3em;
+    text-shadow: 0 2px 0px #000;
+}
+
+#phrase span {color: var(--c1);}
+/* Content */
+
+/* Showcase */
 main {
     background-color: #de0b00;
     padding: 15px;
@@ -123,8 +190,8 @@ main h2 {
     border-radius: 10px 10px 0 0;
     box-shadow: 0 0.5px 10px #000000a1;
     z-index: 2;
-    clip-path: inset(-20px -20px 0px -20px);
-    transform: translateY(1px); 
+    clip-path: inset(-20px -20px 1px -20px);
+    transform: translateY(1.5px); 
 }
 
 #showcase {
@@ -159,9 +226,7 @@ main h2 {
     overflow: hidden;
 }
 
-.item figure {
-    overflow: hidden;
-}
+.item figure {overflow: hidden;}
 
 .item img {
     width: 100%;
@@ -191,9 +256,7 @@ main h2 {
     cursor: pointer;
     transform: scale(1.02) rotate(-2deg);
 }
-.item .inv:hover {
-    transform: scale(1.02) rotate(2deg);
-}
+.item .inv:hover {transform: scale(1.02) rotate(2deg);}
 
 .itemdesc {
     color: var(--c5);
@@ -225,23 +288,14 @@ main h2 {
 }
 
 .icons img {width: 5vw;}
+/* Showcase */
 
 @media (max-width: 900px) {
-    #showcase {
-        padding: 40px;
-    }
-
-    .fullitem {
-        gap: 20px;
-    }
+    #showcase {padding: 40px;}
+    .fullitem {gap: 20px;}
 }
 
 @media (max-width: 600px) {
-    #showcase {
-        padding: 30px;
-    }
-
-    .fullitem {
-        gap: 15px;
-    }
+    #showcase {padding: 30px;}
+    .fullitem {gap: 15px;}
 }
