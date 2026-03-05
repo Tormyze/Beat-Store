@@ -78,6 +78,7 @@ header h1:hover span::after {width: calc(100% + 4px);}
     flex-direction: column;
     align-items: center;
     background-image: linear-gradient(to top left, #ffffff0f, black);
+    overflow-x: hidden;
 }
 
 #slogan {padding: 100px 20px;}
@@ -177,7 +178,7 @@ header h1:hover span::after {width: calc(100% + 4px);}
 /* Content */
 
 /* Showcase */
-main {
+.full-showcase {
     background-color: #de0b00;
     padding: 15px;
     box-shadow: 0 0.5px 10px #000000a1 inset;
@@ -186,7 +187,7 @@ main {
     align-items: center;
 }
 
-main h2 {
+.full-showcase h2 {
     color: var(--c6);
     font-size: 1.3em;
     background-color: #fff; 
@@ -198,7 +199,7 @@ main h2 {
     clip-path: inset(-20px -20px 1px -20px);
     transform: translateY(1.5px); 
 }
-main h2 span {color: var(--c1);}
+.full-showcase h2 span {color: var(--c1);}
 
 #about {
     display: flex;
@@ -257,6 +258,9 @@ main h2 span {color: var(--c1);}
     overflow: hidden;
 }
 
+.reversed .item {order: 2;}
+.reversed .itemdesc {order: 1;}
+
 .item figure {overflow: hidden;}
 
 .item img {
@@ -276,6 +280,7 @@ main h2 span {color: var(--c1);}
 .item h3 {
     width: 100vw;
     font-weight: 800;
+    font-size: clamp(0.8em, 1em, 3vw);
     padding: 15px 10px;
     display: flex;
     justify-content: center;
@@ -297,7 +302,7 @@ main h2 span {color: var(--c1);}
 }
 
 .itemdesc h4 {
-    font-size: clamp(0.8em, 1.5em, 2vw);
+    font-size: clamp(1em, 1.5em, 2vw);
     font-weight: 700;
     margin-bottom: 10px;
     padding-bottom: 5px;
@@ -305,7 +310,7 @@ main h2 span {color: var(--c1);}
 }
 
 .itemdesc p {
-    font-size: clamp(0.3em, 1em, 1.5vw);
+    font-size: clamp(0.9em, 1.2em, 1.5vw);
     line-height: 1.5em;
 }
 
@@ -362,11 +367,39 @@ footer #tmz {
 
     #about img {width: 100px;}
 
-    #showcase {padding: 40px;}
+    .full-showcase {
+        padding: 0;
+        padding-top: 10px;
+    }
+
+    #showcase {
+        width: 100%;
+        margin: 0;
+        padding: 40px;
+        border-radius: 0;
+    }
+
     .fullitem {gap: 20px;}
 }
 
 @media (max-width: 600px) {
     #showcase {padding: 30px;}
-    .fullitem {gap: 15px;}
+
+    .fullitem {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .fullitem.reversed .itemdesc {order: 2;}
+    .fullitem.reversed .item {order: 1;}
+
+    .itemdesc {
+        align-items: center;
+        text-align: center;
+    }
+
+    .itemdesc h4 {width: 80%;}
+
+    .itemdesc .icons {margin-top: 20px;}
+    .itemdesc .icons img {width: 50px;}
 }
