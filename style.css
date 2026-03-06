@@ -85,7 +85,7 @@ header h1:hover span::after {width: calc(100% + 4px);}
 
 #slogan h1 {
     font-weight: 700;
-    font-size: clamp(2em, 8em, 10vw);
+    font-size: clamp(4em, 6em, 10vw);
     text-align: center;
     text-transform: uppercase;
     /* text-shadow: 0 5px 1px black; */
@@ -178,7 +178,7 @@ header h1:hover span::after {width: calc(100% + 4px);}
 /* Content */
 
 /* Showcase */
-.full-showcase {
+#full-showcase {
     background-color: #de0b00;
     padding: 15px;
     box-shadow: 0 0.5px 10px #000000a1 inset;
@@ -187,7 +187,7 @@ header h1:hover span::after {width: calc(100% + 4px);}
     align-items: center;
 }
 
-.full-showcase h2 {
+#full-showcase h2 {
     color: var(--c6);
     font-size: 1.3em;
     background-color: #fff; 
@@ -199,7 +199,7 @@ header h1:hover span::after {width: calc(100% + 4px);}
     clip-path: inset(-20px -20px 1px -20px);
     transform: translateY(1.5px); 
 }
-.full-showcase h2 span {color: var(--c1);}
+#full-showcase h2 span {color: var(--c1);}
 
 #about {
     display: flex;
@@ -367,7 +367,7 @@ footer #tmz {
 
     #about img {width: 100px;}
 
-    .full-showcase {
+    #full-showcase {
         padding: 0;
         padding-top: 10px;
     }
@@ -383,7 +383,11 @@ footer #tmz {
 }
 
 @media (max-width: 600px) {
+    #slogan {padding: 80px 50px;}
+
     #showcase {padding: 30px;}
+
+    #carousel_box {padding: 0 0 100px 0;}
 
     .fullitem {
         flex-direction: column;
